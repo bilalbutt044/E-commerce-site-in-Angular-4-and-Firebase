@@ -36,12 +36,18 @@ export class ProductsComponent implements OnInit, OnDestroy {
         this.filteredProducts = (this.category) ? 
           this.products.filter(p =>  p.category === this.category) :
           this.products;
-      });
+          console.log('product in product component', this.products);   
+        });
+
   }
 
   async ngOnInit() {
     this.subscription = (await this.shoppingCartService.getCart())
-      .subscribe(cart => this.cart = cart);
+      .subscribe(cart => {
+        this.cart = cart;
+        console.log('cart in product component', this.cart);
+      });
+
   }
 
   ngOnDestroy() {

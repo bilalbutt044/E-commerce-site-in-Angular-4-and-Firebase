@@ -30,7 +30,9 @@ export class ShoppingCart {
   }
 
   getQuantity(product: Product) {
+    console.log('prduct in shotpping car', product);
     let item = this.itemsMap[product.$key];
+    console.log('items map ', this.itemsMap);
     return item ? item.quantity : 0;
   }
 }
