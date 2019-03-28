@@ -1,3 +1,37 @@
-<p>
-  check-out works!
-</p>
+  <h1>Shipping</h1>
+  <form #f="ngForm">
+    <div class="form-group">
+      <label >Name</label>
+      <input type="text" #name="ngModel" ngModel [(ngModel)]="shipping.name" name="Name" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors.required">Name is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label >Address</label>
+      <input type="text" #addressLine1="ngModel" ngModel [(ngModel)]="shipping.addressLine1" name="AddressLine1" class="form-control" 
+        placeholder="Line 1" required>
+        <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+            <div *ngIf="addressLine1.errors.required">Name is required.</div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label ></label>
+      <input type="text" #addressLine2="ngModel" ngModel [(ngModel)]="shipping.addressLine2" name="Address2" class="form-control" 
+        placeholder="Line 2" required>
+        <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
+            <div *ngIf="addressLine2.errors.required">Name is required.</div>
+          </div>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" #city="ngModel" ngModel [(ngModel)]="shipping.city" name="City" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+          <div *ngIf="city.errors.required">Name is required.</div>
+        </div>
+    </div>
+    <button 
+      (click)="placeOrder()"
+      class="btn btn-primary" 
+      >Place order</button>
+  </form>
