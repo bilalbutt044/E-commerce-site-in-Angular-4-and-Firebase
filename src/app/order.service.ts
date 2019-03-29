@@ -7,7 +7,7 @@ export class OrderService {
 
   constructor(private db: AngularFireDatabase, private shoppingCartService: ShoppingCartService) { }
 
-  storeOrder(order) {
+  placeOrder(order) {
    let result =  this.db.list('/orders').push(order);
    this.shoppingCartService.clearCart();
 
